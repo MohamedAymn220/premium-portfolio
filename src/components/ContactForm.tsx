@@ -37,6 +37,8 @@ const errorIds = {
   message: "contact-message-error",
 } as const;
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mpqgkdkd";
+
 function validateForm(values: ContactFormValues): ContactFormErrors {
   const errors: ContactFormErrors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -72,7 +74,7 @@ export function ContactForm() {
     setSubmissionStatus("idle");
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
 
@@ -85,16 +87,28 @@ export function ContactForm() {
       return;
     }
 
-    const subject = encodeURIComponent(`Portfolio inquiry from ${values.name}`);
-    const body = encodeURIComponent(
-      `Name: ${values.name}\nEmail: ${values.email}\n\nMessage:\n${values.message}`,
-    );
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
-    window.location.href = `mailto:mohamedayman21172@gmail.com?subject=${subject}&body=${body}`;
-    setValues(initialValues);
-    setErrors({});
-    setSubmissionStatus("success");
-    setIsSubmitting(false);
+      if (response.ok) {
+        setValues(initialValues);
+        setErrors({});
+        setSubmissionStatus("success");
+      } else {
+        setSubmissionStatus("error");
+      }
+    } catch {
+      setSubmissionStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -131,7 +145,13 @@ export function ContactForm() {
       >
         <div className="overflow-hidden rounded-[2.5rem] border border-white/[0.06] bg-slate-900/40 p-8 shadow-2xl shadow-emerald-500/[0.02] backdrop-blur-xl sm:p-10">
           <CardContent className="p-0">
-            <form className="space-y-5" noValidate onSubmit={handleSubmit}>
+            <form
+              action={FORMSPREE_ENDPOINT}
+              className="space-y-5"
+              method="POST"
+              noValidate
+              onSubmit={handleSubmit}
+            >
               <div className="grid gap-5 md:grid-cols-2">
                 <div className="space-y-2">
                   <label
@@ -212,7 +232,7 @@ export function ContactForm() {
                   className="min-h-5 text-sm leading-6 text-muted-foreground"
                 >
                   {submissionStatus === "success"
-                    ? "Your email client opened with a prepared message."
+                    ? "Your strategy brief has been sent. I'll be in touch shortly."
                     : null}
                   {submissionStatus === "error"
                     ? "Please review the highlighted fields and submit again."
