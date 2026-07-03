@@ -62,6 +62,59 @@ function validateForm(values: ContactFormValues): ContactFormErrors {
   return errors;
 }
 
+function ContactSuccess() {
+  return (
+    <motion.div
+      className="flex flex-col items-center justify-center py-12 text-center"
+      initial={{ opacity: 0, scale: 0.92 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <motion.svg
+        width="76"
+        height="76"
+        viewBox="0 0 76 76"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        aria-hidden="true"
+      >
+        <motion.circle
+          cx="38"
+          cy="38"
+          r="35"
+          stroke="#10B981"
+          strokeWidth="2.5"
+          fill="rgba(16,185,129,0.06)"
+          transform="rotate(-90 38 38)"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+        />
+        <motion.path
+          d="M23 39 L33 49 L53 27"
+          stroke="#10B981"
+          strokeWidth="3.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 0.4, ease: "easeInOut", delay: 0.45 }}
+        />
+      </motion.svg>
+      <h3 className="mt-6 text-2xl font-semibold tracking-tight text-white">
+        Thank you!
+      </h3>
+      <p className="mt-3 max-w-md text-sm leading-7 text-muted-foreground">
+        Your message has been sent successfully. Mohamed will get back to you
+        within 24 hours.
+      </p>
+    </motion.div>
+  );
+}
+
 export function ContactForm() {
   const [values, setValues] = useState<ContactFormValues>(initialValues);
   const [errors, setErrors] = useState<ContactFormErrors>({});
@@ -145,6 +198,9 @@ export function ContactForm() {
       >
         <div className="overflow-hidden rounded-[2.5rem] border border-white/[0.06] bg-slate-900/40 p-8 shadow-2xl shadow-emerald-500/[0.02] backdrop-blur-xl sm:p-10">
           <CardContent className="p-0">
+            {submissionStatus === "success" ? (
+              <ContactSuccess />
+            ) : (
             <form
               action={FORMSPREE_ENDPOINT}
               className="space-y-5"
@@ -231,24 +287,24 @@ export function ContactForm() {
                   aria-live="polite"
                   className="min-h-5 text-sm leading-6 text-muted-foreground"
                 >
-                  {submissionStatus === "success"
-                    ? "Your strategy brief has been sent. I'll be in touch shortly."
-                    : null}
                   {submissionStatus === "error"
                     ? "Please review the highlighted fields and submit again."
                     : null}
                 </p>
-                <Button
-                  aria-label="Send strategy brief to Mohamed Ayman"
-                  className="group h-12 gap-2 rounded-full bg-white px-6 text-sm font-semibold text-slate-950 shadow-[0_8px_30px_rgba(255,255,255,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-300 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)]"
-                  disabled={isSubmitting}
-                  type="submit"
-                >
-                  <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
-                  <span>{isSubmitting ? "Preparing..." : "Send Strategy Brief"}</span>
-                </Button>
+                <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
+                  <Button
+                    aria-label="Send strategy brief to Mohamed Ayman"
+                    className="group h-12 gap-2 rounded-full bg-white px-6 text-sm font-semibold text-slate-950 shadow-[0_8px_30px_rgba(255,255,255,0.12)] transition-colors duration-300 hover:bg-emerald-300 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)]"
+                    disabled={isSubmitting}
+                    type="submit"
+                  >
+                    <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+                    <span>{isSubmitting ? "Preparing..." : "Send Strategy Brief"}</span>
+                  </Button>
+                </motion.div>
               </div>
             </form>
+            )}
           </CardContent>
         </div>
       </motion.div>

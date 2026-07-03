@@ -15,17 +15,17 @@ const cairo = Cairo({
   variable: "--font-cairo",
 });
 
-const siteUrl = "https://mohamed-ayman.dev";
-const profileImage = `${siteUrl}/og-image.jpg`;
+const siteUrl = "https://mohamedayman-dev.vercel.app";
+const profileImage = `${siteUrl}/og-image.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "مهندس محمد أيمن | Mohamed Ayman - Software Engineer Portfolio",
-    template: "%s | Mohamed Ayman - Software Engineer Portfolio",
+    default: "Mohamed Ayman | Backend & Full-Stack Developer",
+    template: "%s | Mohamed Ayman Portfolio",
   },
   description:
-    "الموقع الرسمي للمهندس محمد أيمن، طالب هندسة الحواسيب والنظم ومطور ويب فلستاك متخصص في Python, Django, و Next.js.",
+    "Computer Engineering Student at Al-Azhar University. Building scalable web applications, RESTful APIs, and AI Agents.",
   keywords: [
     "محمد أيمن",
     "محمد ايمن",
@@ -57,32 +57,26 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    type: "profile",
-    locale: "en_US",
-    alternateLocale: ["ar_EG"],
+    title: "Mohamed Ayman | Backend & Full-Stack Developer",
+    description: "Explore my production-ready systems, RESTful routes, and AI integrations.",
     url: siteUrl,
-    siteName: "Mohamed Ayman - Software Engineer Portfolio",
-    title: "مهندس محمد أيمن | Mohamed Ayman - Software Engineer Portfolio",
-    description:
-      "الموقع الرسمي للمهندس محمد أيمن، طالب هندسة الحواسيب والنظم ومطور ويب فلستاك متخصص في Python, Django, و Next.js.",
-    firstName: "Mohamed",
-    lastName: "Ayman Abdelfatah",
-    username: "MohamedAymn220",
+    siteName: "Mohamed Ayman Portfolio",
     images: [
       {
-        url: profileImage,
-        width: 1200,
-        height: 630,
-        alt: "Mohamed Ayman Software Engineer portfolio preview",
+        url: "/og-image.png",
+        width: 1725,
+        height: 912,
+        alt: "Mohamed Ayman Portfolio Premium Preview",
       },
     ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "مهندس محمد أيمن | Mohamed Ayman - Software Engineer Portfolio",
-    description:
-      "الموقع الرسمي للمهندس محمد أيمن، طالب هندسة الحواسيب والنظم ومطور ويب فلستاك متخصص في Python, Django, و Next.js.",
-    images: [profileImage],
+    title: "Mohamed Ayman | Backend & Full-Stack Developer",
+    description: "Explore my production-ready systems, RESTful routes, and AI integrations.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

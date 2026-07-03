@@ -271,17 +271,30 @@ type SectionProps = {
   children: ReactNode;
 };
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
 function Section({ id, labelledBy, className, children }: SectionProps) {
   return (
-    <section
+    <motion.section
       id={id}
       aria-labelledby={labelledBy}
       className={`relative mx-auto w-full scroll-mt-28 px-6 py-20 sm:py-24 md:px-10 lg:px-12 ${
         className ?? ""
       }`}
+      initial="hidden"
+      variants={sectionVariants}
+      viewport={{ once: true, amount: 0.15 }}
+      whileInView="visible"
     >
       {children}
-    </section>
+    </motion.section>
   );
 }
 
