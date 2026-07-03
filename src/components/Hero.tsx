@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { type MouseEvent } from "react";
+import { type ComponentType, type MouseEvent } from "react";
 import {
   ArrowUpRight,
   Boxes,
@@ -15,12 +15,21 @@ import {
   Phone,
   Route,
 } from "lucide-react";
+import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 
 const profileImageSrc = "/Gemini_Generated_Image_oco7vloco7vloco7.png";
 
-const socialLinks = [
+type SocialLink = {
+  label: string;
+  href: string;
+  title: string;
+  ariaLabel: string;
+  icon: ComponentType<{ className?: string }>;
+};
+
+const socialLinks: SocialLink[] = [
   {
     label: "GitHub",
     href: "https://github.com/MohamedAymn220",
@@ -43,13 +52,27 @@ const socialLinks = [
     icon: Mail,
   },
   {
+    label: "Facebook",
+    href: "https://www.facebook.com/mohamed.ayman.abdelfatah.2025?locale=ar_AR",
+    title: "Visit Mohamed Ayman on Facebook",
+    ariaLabel: "Visit Mohamed Ayman Facebook profile",
+    icon: FaFacebook,
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/201149636796",
+    title: "Message Mohamed Ayman on WhatsApp",
+    ariaLabel: "Message Mohamed Ayman on WhatsApp at +20 114 963 6796",
+    icon: FaWhatsapp,
+  },
+  {
     label: "Phone",
     href: "tel:+201149636796",
     title: "Call Mohamed Ayman",
     ariaLabel: "Call Mohamed Ayman at +20 114 963 6796",
     icon: Phone,
   },
-] as const;
+];
 
 const heroStats = [
   {
