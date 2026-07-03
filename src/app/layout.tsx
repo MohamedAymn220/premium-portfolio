@@ -105,7 +105,7 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   verification: {
-    google: "google-site-verification-code",
+    google: "google916346dbb16e4420",
   },
 };
 
