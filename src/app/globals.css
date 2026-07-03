@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 39% 7%;
+    --foreground: 210 40% 98%;
+    --card: 222 38% 9%;
+    --card-foreground: 210 40% 98%;
+    --primary: 190 95% 55%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 220 28% 13%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 28% 14%;
+    --muted-foreground: 218 18% 72%;
+    --accent: 161 84% 56%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 24% 18%;
+    --input: 220 28% 14%;
+    --ring: 199 89% 48%;
+    --radius: 1.25rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply border border-white/10 bg-white/[0.055] shadow-glow backdrop-blur-2xl;
+  }
+
+  .font-arabic {
+    font-family: var(--font-cairo), var(--font-plus-jakarta), sans-serif;
+  }
+
+  .hero-mesh {
+    background:
+      radial-gradient(circle at 12% 18%, rgba(34, 211, 238, 0.18), transparent 34%),
+      radial-gradient(circle at 72% 12%, rgba(16, 185, 129, 0.16), transparent 32%),
+      radial-gradient(circle at 84% 78%, rgba(59, 130, 246, 0.14), transparent 34%),
+      linear-gradient(135deg, rgba(11, 15, 25, 0.96), rgba(7, 10, 18, 0.98));
+  }
+
+  .text-gradient-premium {
+    @apply bg-gradient-to-r from-white via-sky-100 to-emerald-100 bg-clip-text text-transparent;
+  }
+
+  .premium-ring {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 0 54px rgba(34, 211, 238, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.7s ease-out both;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fade-in 0.8s ease-out 0.15s both;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .glass-backdrop {
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@layer utilities {
+  .grain-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    mix-blend-mode: soft-light;
+  }
+
+  .ambient-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(120px);
+    will-change: transform;
+  }
+  .ambient-blob--emerald {
+    width: 40rem;
+    height: 40rem;
+    top: -10rem;
+    left: -8rem;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.16), transparent 70%);
+    animation: ambient-drift 24s ease-in-out infinite;
+  }
+  .ambient-blob--indigo {
+    width: 46rem;
+    height: 46rem;
+    top: 28%;
+    right: -12rem;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.13), transparent 70%);
+    animation: ambient-drift 30s ease-in-out infinite reverse;
+  }
+  .ambient-blob--cyan {
+    width: 36rem;
+    height: 36rem;
+    bottom: -10rem;
+    left: 35%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.12), transparent 70%);
+    animation: ambient-drift 27s ease-in-out infinite;
+  }
+
+  .pulse-dot {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background-color: #34d399;
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.8);
+  }
+  .pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background-color: #34d399;
+    animation: pulse-ring 2.4s ease-out infinite;
+  }
+  .pulse-dot--cyan {
+    background-color: #22d3ee;
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
+  }
+  .pulse-dot--cyan::after {
+    background-color: #22d3ee;
+  }
+
+  .timeline-pulse {
+    animation: pulse-ring 2.4s ease-out infinite;
+  }
+
+  .bento-card {
+    @apply relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-800/40 bg-white/[0.025] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-emerald-500/30 hover:bg-white/[0.045] hover:shadow-2xl hover:shadow-emerald-500/5;
+  }
+  .bento-card::after {
+    content: "";
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.28), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .bento-card:hover::after {
+    opacity: 1;
+  }
+
+  .tech-chip {
+    @apply inline-flex items-center gap-2.5 rounded-xl border border-white/[0.04] bg-slate-900/40 px-3.5 py-2 text-sm font-medium text-slate-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800/60 hover:text-white;
+    border-color: var(--tech-border, rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 transparent;
+  }
+  .tech-chip:hover {
+    box-shadow: 0 4px 24px var(--tech-glow, rgba(255, 255, 255, 0.08));
+  }
+  .tech-icon {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    color: var(--tech-color, #94a3b8);
+  }
+  .tech-chip:hover .tech-icon {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 6px var(--tech-color, #94a3b8));
+  }
+}
+
+@keyframes ambient-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -36px, 0) scale(1.08);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-blob,
+  .pulse-dot::after,
+  .timeline-pulse {
+    animation: none !important;
+  }
+}
