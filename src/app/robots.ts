@@ -1,20 +1,11 @@
-import type { MetadataRoute } from "next";
-
-const siteUrl = "https://mohamedayman.dev";
+import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-      },
-      {
-        userAgent: "Googlebot",
-        allow: "/",
-      },
-    ],
-    sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
+    rules: {
+      userAgent: '*',
+      allow: '/',
+    },
+    sitemap: 'https://mohamedayman-dev.vercel.app/sitemap.xml',
   };
 }
