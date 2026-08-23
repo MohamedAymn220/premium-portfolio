@@ -154,16 +154,7 @@ function ProfilePortrait() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="relative w-72 h-[22rem] sm:w-80 sm:h-[28rem] lg:w-96 lg:h-[34rem] mx-auto lg:mx-0 flex items-end justify-center">
-        {/* The Rotating Aura (Behind the image) - Guaranteed to be visible */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] z-0 rounded-full opacity-60 blur-[45px] animate-[spin_6s_linear_infinite]"
-          style={{
-            background:
-              "conic-gradient(from 0deg, transparent 0deg, #10b981 90deg, transparent 180deg, #3b82f6 270deg, transparent 360deg)",
-          }}
-        />
-
-        {/* The Static Profile Image (In front) */}
+        {/* The Static Profile Image */}
         <div className="relative z-10 w-full h-full pointer-events-none">
           <Image
             alt="Mohamed Ayman software engineer profile portrait"
