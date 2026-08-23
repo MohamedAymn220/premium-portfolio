@@ -253,18 +253,14 @@ export function Hero() {
             className="mt-8 max-w-xl text-lg font-medium leading-8 text-slate-300 sm:text-xl lg:text-2xl lg:leading-9"
             variants={itemVariants}
           >
-            Software Engineering Student | Backend &amp; Full-Stack Developer
+            Full-Stack Developer | Backend (Django) & Frontend (React)
           </motion.h2>
 
           <motion.p
             className="mt-6 max-w-xl text-base leading-7 text-slate-400 sm:text-lg sm:leading-8"
             variants={itemVariants}
           >
-            Computer and Systems Engineering student at Al-Azhar University,
-            graduating in 2028, seeking a Backend / Full-Stack internship to
-            apply hands-on Python and Django skills in a real engineering
-            environment. Focused on REST API design, normalized database
-            architecture, and modern frontend stacks.
+            Software Engineer specializing in building scalable web applications. Proficient in architecting robust backend systems and RESTful APIs using Python & Django, alongside crafting responsive, dynamic user interfaces with React. Dedicated to clean code practices, optimized database architecture, and delivering end-to-end, production-ready solutions.
           </motion.p>
 
           <motion.div
