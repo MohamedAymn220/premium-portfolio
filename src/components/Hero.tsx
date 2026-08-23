@@ -228,7 +228,7 @@ export function Hero() {
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
               <Button
                 asChild
-                className="h-13 rounded-full bg-white px-7 text-slate-950 shadow-[0_10px_40px_rgba(255,255,255,0.18)] shadow-[0_0_15px_rgba(16,185,129,0.6)] animate-[pulse_4s_ease-in-out_infinite] hover:bg-emerald-300 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)]"
+                className="group relative h-13 overflow-hidden rounded-full bg-white px-7 text-slate-950 transition-colors duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:-z-10 before:bg-emerald-500 before:transition-all before:duration-300 hover:text-white hover:before:w-full"
                 size="lg"
                 aria-label="Download Mohamed Ayman CV"
               >
@@ -246,7 +246,7 @@ export function Hero() {
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
               <Button
                 asChild
-                className="h-13 rounded-full border border-white/[0.12] bg-white/[0.03] px-7 text-white backdrop-blur-md hover:border-cyan-300/40 hover:bg-white/[0.06]"
+                className="group relative h-13 overflow-hidden rounded-full border border-white/[0.12] bg-white/[0.03] px-7 text-white backdrop-blur-md transition-colors duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:-z-10 before:bg-cyan-500/20 before:transition-all before:duration-300 hover:border-cyan-300/40 hover:before:w-full"
                 size="lg"
                 variant="outline"
                 aria-label="View Mohamed Ayman GitHub profile"
