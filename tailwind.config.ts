@@ -71,6 +71,15 @@ const config: Config = {
       boxShadow: {
         glow: "0 0 80px rgba(59,130,246,0.16)",
       },
+      keyframes: {
+        'pulse-pause': {
+          '0%, 85%, 100%': { opacity: '1' },
+          '92%': { opacity: '0.5' },
+        },
+      },
+      animation: {
+        'pulse-pause': 'pulse-pause 7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
     },
   },
   plugins: [],
