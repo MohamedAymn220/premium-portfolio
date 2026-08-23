@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { type ComponentType, type MouseEvent } from "react";
+import { motion } from "framer-motion";
+import { type ComponentType } from "react";
 import {
   ArrowUpRight,
   Boxes,
@@ -146,64 +146,36 @@ const itemVariants = {
 };
 
 function ProfilePortrait() {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [9, -9]), {
-    stiffness: 150,
-    damping: 18,
-    mass: 0.4,
-  });
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-9, 9]), {
-    stiffness: 150,
-    damping: 18,
-    mass: 0.4,
-  });
-
-  const auraX = useTransform(x, [-0.5, 0.5], [-26, 26]);
-  const auraY = useTransform(y, [-0.5, 0.5], [-26, 26]);
-
-  function handleMouseMove(event: MouseEvent<HTMLDivElement>) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    x.set((event.clientX - rect.left) / rect.width - 0.5);
-    y.set((event.clientY - rect.top) / rect.height - 0.5);
-  }
-
-  function handleMouseLeave() {
-    x.set(0);
-    y.set(0);
-  }
-
   return (
     <motion.div
       animate={{ opacity: 1, x: 0 }}
-      className="group/portrait relative mx-auto w-full max-w-md flex justify-center lg:justify-start"
+      className="relative mx-auto w-full max-w-md flex justify-center lg:justify-start"
       initial={{ opacity: 0, x: -50 }}
-      onMouseLeave={handleMouseLeave}
-      onMouseMove={handleMouseMove}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute -inset-8 rounded-[2.6rem] bg-gradient-to-br from-emerald-500/25 via-cyan-400/15 to-indigo-500/25 opacity-0 blur-2xl transition-opacity duration-500 group-hover/portrait:opacity-100"
-        style={{ x: auraX, y: auraY }}
-      />
-      <div className="relative w-full [perspective:1000px] flex justify-center lg:justify-start">
-        <motion.div
-          className="relative [transform-style:preserve-3d]"
-          style={{ rotateX, rotateY }}
-        >
-          <div className="relative w-64 h-80 sm:w-72 sm:h-96 mx-auto sm:mx-0 flex items-end">
-            <Image
-              alt="Mohamed Ayman software engineer profile portrait"
-              className="object-contain object-bottom drop-shadow-[0_0_20px_rgba(16,185,129,0.4)] animate-[pulse_4s_ease-in-out_infinite] w-full h-full"
-              fill
-              priority
-              sizes="(min-width: 1024px) 36rem, (min-width: 640px) 80vw, 90vw"
-              src={profileImageSrc}
-            />
-          </div>
-        </motion.div>
+      <div className="relative w-64 h-80 mx-auto sm:mx-0 flex items-end justify-center">
+        {/* The Rotating Aura (Behind the image) */}
+        <div className="absolute inset-0 -inset-x-4 -inset-y-4 z-0">
+          <div
+            className="absolute inset-0 rounded-full opacity-60 blur-2xl animate-[spin_6s_linear_infinite]"
+            style={{
+              background:
+                "conic-gradient(from 0deg, transparent 0deg, theme(colors.emerald.500) 90deg, transparent 180deg, theme(colors.blue.500) 270deg, transparent 360deg)",
+            }}
+          />
+        </div>
+
+        {/* The Static Profile Image (In front) */}
+        <div className="relative z-10 w-full h-full pointer-events-none">
+          <Image
+            alt="Mohamed Ayman software engineer profile portrait"
+            className="object-contain object-bottom w-full h-full pointer-events-none"
+            fill
+            priority
+            sizes="(min-width: 1024px) 36rem, (min-width: 640px) 80vw, 90vw"
+            src={profileImageSrc}
+          />
+        </div>
       </div>
     </motion.div>
   );
