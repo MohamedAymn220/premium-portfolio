@@ -175,7 +175,7 @@ function Navigation() {
           </div>
           <a
             href="#contact"
-            className="hidden items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition-all duration-300 hover:bg-emerald-300 hover:shadow-[0_0_28px_rgba(16,185,129,0.4)] sm:inline-flex"
+            className="hidden items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 shadow-[0_0_15px_theme(colors.emerald.500/60)] animate-[pulse_2s_ease-in-out_infinite] transition-all duration-300 hover:bg-emerald-300 hover:shadow-[0_0_28px_rgba(16,185,129,0.4)] sm:inline-flex"
           >
             Let&apos;s talk
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -211,7 +211,7 @@ function Navigation() {
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-1 block rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold text-slate-950"
+            className="mt-1 block rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold text-slate-950 shadow-[0_0_15px_theme(colors.emerald.500/60)] animate-[pulse_2s_ease-in-out_infinite]"
           >
             Let&apos;s talk
           </a>

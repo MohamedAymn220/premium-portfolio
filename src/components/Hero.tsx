@@ -175,46 +175,37 @@ function ProfilePortrait() {
   }
 
   return (
-    <div
-      className="group/portrait relative mx-auto aspect-[4/5] w-full max-w-md"
+    <motion.div
+      animate={{ opacity: 1, x: 0 }}
+      className="group/portrait relative mx-auto w-full max-w-md flex justify-center lg:justify-start"
+      initial={{ opacity: 0, x: -50 }}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute -inset-8 rounded-[2.6rem] bg-gradient-to-br from-emerald-500/25 via-cyan-400/15 to-indigo-500/25 opacity-0 blur-2xl transition-opacity duration-500 group-hover/portrait:opacity-100"
         style={{ x: auraX, y: auraY }}
       />
-      <motion.div
-        className="relative h-full w-full [perspective:1000px]"
-        initial={{ opacity: 0, scale: 0.96 }}
-        transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-      >
+      <div className="relative w-full [perspective:1000px] flex justify-center lg:justify-start">
         <motion.div
-          className="relative h-full w-full [transform-style:preserve-3d]"
+          className="relative [transform-style:preserve-3d]"
           style={{ rotateX, rotateY }}
         >
-          <Image
-            alt="Mohamed Ayman software engineer profile portrait"
-            className="rounded-[2rem] object-cover object-center"
-            fill
-            priority
-            sizes="(min-width: 1024px) 36rem, (min-width: 640px) 80vw, 90vw"
-            src={profileImageSrc}
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/10"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-32 rounded-b-[2rem] bg-gradient-to-t from-[#0B0F19]/60 to-transparent"
-          />
+          <div className="relative w-64 h-80 sm:w-72 sm:h-96 mx-auto sm:mx-0 flex items-end">
+            <Image
+              alt="Mohamed Ayman software engineer profile portrait"
+              className="object-contain object-bottom drop-shadow-[0_0_20px_rgba(16,185,129,0.4)] animate-[pulse_4s_ease-in-out_infinite] w-full h-full"
+              fill
+              priority
+              sizes="(min-width: 1024px) 36rem, (min-width: 640px) 80vw, 90vw"
+              src={profileImageSrc}
+            />
+          </div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 }
 
@@ -228,7 +219,12 @@ export function Hero() {
         variants={containerVariants}
       >
         {/* LEFT COLUMN — floating minimalist typography */}
-        <div className="relative z-10 flex flex-col items-center sm:items-start">
+        <motion.div
+          animate={{ opacity: 1, x: 0 }}
+          className="relative z-10 flex flex-col items-center sm:items-start"
+          initial={{ opacity: 0, x: 30 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        >
           <motion.div
             className="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-center text-sm font-medium text-slate-300 backdrop-blur-md sm:text-left"
             variants={itemVariants}
@@ -270,7 +266,7 @@ export function Hero() {
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
               <Button
                 asChild
-                className="h-13 rounded-full bg-white px-7 text-slate-950 shadow-[0_10px_40px_rgba(255,255,255,0.18)] hover:bg-emerald-300 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)]"
+                className="h-13 rounded-full bg-white px-7 text-slate-950 shadow-[0_10px_40px_rgba(255,255,255,0.18)] shadow-[0_0_15px_theme(colors.emerald.500/60)] animate-[pulse_2s_ease-in-out_infinite] hover:bg-emerald-300 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)]"
                 size="lg"
                 aria-label="Download Mohamed Ayman CV"
               >
@@ -358,7 +354,7 @@ export function Hero() {
               );
             })}
           </motion.nav>
-        </div>
+        </motion.div>
 
         {/* RIGHT COLUMN — free-floating clean portrait */}
         <motion.aside
