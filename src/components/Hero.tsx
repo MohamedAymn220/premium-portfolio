@@ -153,7 +153,7 @@ function ProfilePortrait() {
       initial={{ opacity: 0, x: -50 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="relative w-72 h-[22rem] sm:w-80 sm:h-[28rem] lg:w-96 lg:h-[34rem] mx-auto lg:mx-0 flex items-end justify-center">
+      <div className="relative w-80 h-[26rem] sm:w-96 sm:h-[32rem] lg:w-[480px] lg:h-[600px] mx-auto lg:mx-0 lg:-mt-20 flex items-end justify-center">
         {/* The Static Profile Image */}
         <div className="relative z-10 w-full h-full pointer-events-none">
           <Image
@@ -161,7 +161,8 @@ function ProfilePortrait() {
             className="object-contain object-bottom w-full h-full pointer-events-none"
             fill
             priority
-            sizes="(min-width: 1024px) 36rem, (min-width: 640px) 80vw, 90vw"
+            quality={100}
+            sizes="(min-width: 1024px) 480px, (min-width: 640px) 80vw, 90vw"
             src={profileImageSrc}
           />
         </div>
