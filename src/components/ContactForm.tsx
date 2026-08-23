@@ -180,12 +180,13 @@ export function ContactForm() {
           id="contact-heading"
           className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
         >
-          Start a focused backend or full-stack conversation
+          Let&apos;s Build Something Exceptional Together
         </h2>
         <p className="mt-5 text-base leading-7 text-muted-foreground sm:text-lg">
-          Reach Mohamed Ayman for backend internships, Django engineering work,
-          full-stack collaboration, or production-ready web application
-          opportunities.
+          Whether you need a robust Django backend, a dynamic React interface,
+          or a scalable full-stack web application, I&apos;m ready to turn your
+          ideas into production-ready reality. Drop a message and let&apos;s talk
+          about your next project.
         </p>
       </motion.div>
 
