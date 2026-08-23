@@ -71,13 +71,15 @@ export function Testimonials() {
         </p>
       </div>
 
-      {/* Marquee Track */}
-      <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
-        {duplicatedTestimonials.map((testimonial, index) => (
-          <div
-            key={`${testimonial.id}-${index}`}
-            className="w-[350px] md:w-[400px] flex-shrink-0 p-6 md:p-8 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col justify-between mx-3 transition-colors hover:bg-slate-900/60"
-          >
+      {/* Marquee Wrapper with Edge Fade */}
+      <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+        {/* Marquee Track */}
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+          {duplicatedTestimonials.map((testimonial, index) => (
+            <div
+              key={`${testimonial.id}-${index}`}
+              className="w-[400px] md:w-[480px] flex-shrink-0 p-6 md:p-8 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col justify-between mx-3 transition-colors hover:bg-slate-900/60"
+            >
             {/* Top Part */}
             <p className="text-slate-300 leading-relaxed">
               &quot;{testimonial.quote}&quot;
@@ -104,6 +106,7 @@ export function Testimonials() {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );
