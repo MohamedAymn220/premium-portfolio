@@ -153,17 +153,15 @@ function ProfilePortrait() {
       initial={{ opacity: 0, x: -50 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="relative w-64 h-80 mx-auto sm:mx-0 flex items-end justify-center">
-        {/* The Rotating Aura (Behind the image) */}
-        <div className="absolute inset-0 -inset-x-4 -inset-y-4 z-0">
-          <div
-            className="absolute inset-0 rounded-full opacity-60 blur-2xl animate-[spin_6s_linear_infinite]"
-            style={{
-              background:
-                "conic-gradient(from 0deg, transparent 0deg, theme(colors.emerald.500) 90deg, transparent 180deg, theme(colors.blue.500) 270deg, transparent 360deg)",
-            }}
-          />
-        </div>
+      <div className="relative w-72 h-[22rem] sm:w-80 sm:h-[28rem] lg:w-96 lg:h-[34rem] mx-auto lg:mx-0 flex items-end justify-center">
+        {/* The Rotating Aura (Behind the image) - Guaranteed to be visible */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] z-0 rounded-full opacity-60 blur-[45px] animate-[spin_6s_linear_infinite]"
+          style={{
+            background:
+              "conic-gradient(from 0deg, transparent 0deg, #10b981 90deg, transparent 180deg, #3b82f6 270deg, transparent 360deg)",
+          }}
+        />
 
         {/* The Static Profile Image (In front) */}
         <div className="relative z-10 w-full h-full pointer-events-none">
@@ -238,7 +236,7 @@ export function Hero() {
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
               <Button
                 asChild
-                className="h-13 rounded-full bg-white px-7 text-slate-950 shadow-[0_10px_40px_rgba(255,255,255,0.18)] shadow-[0_0_15px_theme(colors.emerald.500/60)] animate-[pulse_2s_ease-in-out_infinite] hover:bg-emerald-300 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)]"
+                className="h-13 rounded-full bg-white px-7 text-slate-950 shadow-[0_10px_40px_rgba(255,255,255,0.18)] shadow-[0_0_15px_rgba(16,185,129,0.6)] animate-[pulse_4s_ease-in-out_infinite] hover:bg-emerald-300 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)]"
                 size="lg"
                 aria-label="Download Mohamed Ayman CV"
               >
