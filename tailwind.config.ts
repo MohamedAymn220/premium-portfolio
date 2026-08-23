@@ -73,8 +73,8 @@ const config: Config = {
       },
       keyframes: {
         'pulse-pause': {
-          '0%, 85%, 100%': { opacity: '1' },
-          '92%': { opacity: '0.5' },
+          '0%, 85%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '92%': { opacity: '0.6', transform: 'scale(0.98)' },
         },
         scaleUp: {
           '0%, 100%': { transform: 'scale(1)' },
