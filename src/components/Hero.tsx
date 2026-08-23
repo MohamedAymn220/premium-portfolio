@@ -220,7 +220,7 @@ function ProfilePortrait() {
 
 export function Hero() {
   return (
-    <header className="relative w-full">
+    <header className="relative w-full overflow-x-hidden sm:overflow-x-visible">
       <motion.div
         animate="visible"
         className="relative grid w-full items-center gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12"
@@ -228,9 +228,9 @@ export function Hero() {
         variants={containerVariants}
       >
         {/* LEFT COLUMN — floating minimalist typography */}
-        <div className="relative z-10 flex flex-col">
+        <div className="relative z-10 flex flex-col items-center sm:items-start">
           <motion.div
-            className="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-medium text-slate-300 backdrop-blur-md"
+            className="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-center text-sm font-medium text-slate-300 backdrop-blur-md sm:text-left"
             variants={itemVariants}
           >
             <span className="pulse-dot" aria-hidden="true" />
@@ -239,7 +239,7 @@ export function Hero() {
 
           <motion.h1
             id="hero-heading"
-            className="mt-8 text-balance text-[clamp(3rem,8vw,6.5rem)] font-black leading-[0.92] tracking-[-0.05em] text-white"
+            className="mt-8 text-balance text-center text-[clamp(3rem,8vw,6.5rem)] font-black leading-[0.92] tracking-[-0.05em] text-white sm:text-left"
             variants={itemVariants}
           >
             Mohamed Ayman
@@ -250,21 +250,21 @@ export function Hero() {
           </motion.h1>
 
           <motion.h2
-            className="mt-8 max-w-xl text-lg font-medium leading-8 text-slate-300 sm:text-xl lg:text-2xl lg:leading-9"
+            className="mt-8 max-w-xl text-center text-lg font-medium leading-8 text-slate-300 sm:text-left sm:text-xl lg:text-2xl lg:leading-9"
             variants={itemVariants}
           >
             Full-Stack Developer | Backend (Django) & Frontend (React)
           </motion.h2>
 
           <motion.p
-            className="mt-6 max-w-xl text-base leading-7 text-slate-400 sm:text-lg sm:leading-8"
+            className="mt-6 max-w-xl text-center text-base leading-7 text-slate-400 sm:text-left sm:text-lg sm:leading-8"
             variants={itemVariants}
           >
             Software Engineer specializing in building scalable web applications. Proficient in architecting robust backend systems and RESTful APIs using Python & Django, alongside crafting responsive, dynamic user interfaces with React. Dedicated to clean code practices, optimized database architecture, and delivering end-to-end, production-ready solutions.
           </motion.p>
 
           <motion.div
-            className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-center sm:justify-start"
             variants={itemVariants}
           >
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
@@ -308,7 +308,7 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4"
+            className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:justify-start"
             variants={itemVariants}
           >
             {contactDetails.map((detail) => {
@@ -335,7 +335,7 @@ export function Hero() {
 
           <motion.nav
             aria-label="Mohamed Ayman social and contact links"
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-8 flex flex-wrap justify-center gap-3 sm:justify-start"
             variants={itemVariants}
           >
             {socialLinks.map((link) => {
