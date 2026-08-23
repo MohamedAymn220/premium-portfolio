@@ -9,6 +9,7 @@ import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { Hero } from "@/components/Hero";
 import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { TechStack } from "@/components/TechStack";
+import { Testimonials } from "@/components/Testimonials";
 
 const navLinks = [
   { id: "experience", label: "Experience" },
@@ -175,7 +176,7 @@ function Navigation() {
           </div>
           <a
             href="#contact"
-            className="hidden items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition-all duration-300 hover:bg-emerald-300 hover:shadow-[0_0_28px_rgba(16,185,129,0.4)] sm:inline-flex"
+            className="pulse-pause-btn hidden items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all duration-300 hover:bg-emerald-300 hover:shadow-[0_0_28px_rgba(16,185,129,0.4)] sm:inline-flex"
           >
             Let&apos;s talk
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -211,7 +212,7 @@ function Navigation() {
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-1 block rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold text-slate-950"
+            className="pulse-pause-btn mt-1 block rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.5)]"
           >
             Let&apos;s talk
           </a>
@@ -331,6 +332,12 @@ export default function HomePage() {
 
         <Section id="projects" labelledBy="projects-heading" className="max-w-7xl">
           <ProjectsGrid />
+        </Section>
+
+        <Seam />
+
+        <Section id="testimonials" labelledBy="testimonials-heading" className="max-w-7xl">
+          <Testimonials />
         </Section>
 
         <Seam />

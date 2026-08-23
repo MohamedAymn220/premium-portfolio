@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { type ComponentType, type MouseEvent } from "react";
+import { motion } from "framer-motion";
+import { type ComponentType } from "react";
 import {
   ArrowUpRight,
   Boxes,
@@ -146,70 +146,26 @@ const itemVariants = {
 };
 
 function ProfilePortrait() {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [9, -9]), {
-    stiffness: 150,
-    damping: 18,
-    mass: 0.4,
-  });
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-9, 9]), {
-    stiffness: 150,
-    damping: 18,
-    mass: 0.4,
-  });
-
-  const auraX = useTransform(x, [-0.5, 0.5], [-26, 26]);
-  const auraY = useTransform(y, [-0.5, 0.5], [-26, 26]);
-
-  function handleMouseMove(event: MouseEvent<HTMLDivElement>) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    x.set((event.clientX - rect.left) / rect.width - 0.5);
-    y.set((event.clientY - rect.top) / rect.height - 0.5);
-  }
-
-  function handleMouseLeave() {
-    x.set(0);
-    y.set(0);
-  }
-
   return (
     <motion.div
       animate={{ opacity: 1, x: 0 }}
-      className="group/portrait relative mx-auto aspect-[4/5] w-full max-w-md"
+      className="relative mx-auto w-full max-w-md flex justify-center lg:justify-start"
       initial={{ opacity: 0, x: -50 }}
-      onMouseLeave={handleMouseLeave}
-      onMouseMove={handleMouseMove}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute -inset-8 rounded-[2.6rem] bg-gradient-to-br from-emerald-500/25 via-cyan-400/15 to-indigo-500/25 opacity-0 blur-2xl transition-opacity duration-500 group-hover/portrait:opacity-100"
-        style={{ x: auraX, y: auraY }}
-      />
-      <div className="relative h-full w-full [perspective:1000px]">
-        <motion.div
-          className="relative h-full w-full [transform-style:preserve-3d]"
-          style={{ rotateX, rotateY }}
-        >
+      <div className="relative w-80 h-[26rem] sm:w-96 sm:h-[32rem] lg:w-[540px] lg:h-[680px] mx-auto lg:mx-0 lg:-mt-20 flex items-end justify-center">
+        {/* The Static Profile Image */}
+        <div className="relative z-10 w-full h-full pointer-events-none">
           <Image
             alt="Mohamed Ayman software engineer profile portrait"
-            className="rounded-[2rem] object-cover object-center"
+            className="object-contain object-bottom w-full h-full pointer-events-none"
             fill
             priority
-            sizes="(min-width: 1024px) 36rem, (min-width: 640px) 80vw, 90vw"
+            quality={100}
+            sizes="(min-width: 1024px) 540px, (min-width: 640px) 80vw, 90vw"
             src={profileImageSrc}
           />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/10"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-32 rounded-b-[2rem] bg-gradient-to-t from-[#0B0F19]/60 to-transparent"
-          />
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );
@@ -272,7 +228,7 @@ export function Hero() {
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
               <Button
                 asChild
-                className="h-13 rounded-full bg-white px-7 text-slate-950 shadow-[0_10px_40px_rgba(255,255,255,0.18)] hover:bg-emerald-300 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)]"
+                className="group relative flex h-13 items-center justify-center overflow-hidden rounded-full bg-white px-7 text-slate-950 z-10 transition-all duration-300 before:absolute before:inset-0 before:right-0 before:left-auto before:h-full before:w-0 before:-z-10 before:bg-emerald-500 before:transition-all before:duration-400 before:ease-in-out hover:before:right-auto hover:before:left-0 hover:before:w-full"
                 size="lg"
                 aria-label="Download Mohamed Ayman CV"
               >
@@ -281,8 +237,10 @@ export function Hero() {
                   download="Mohamed_Ayman_Backend_Intern_CV.docx"
                   title="Download Mohamed_Ayman_Backend_Intern_CV.docx"
                 >
-                  <Download className="h-5 w-5" aria-hidden="true" />
-                  Download CV
+                  <span className="relative z-20 inline-flex w-full items-center justify-center gap-2 text-center transition-all duration-300 group-hover:animate-scaleUp group-hover:text-white">
+                    <Download className="h-5 w-5" aria-hidden="true" />
+                    Download CV
+                  </span>
                 </a>
               </Button>
             </motion.div>
@@ -290,7 +248,7 @@ export function Hero() {
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
               <Button
                 asChild
-                className="h-13 rounded-full border border-white/[0.12] bg-white/[0.03] px-7 text-white backdrop-blur-md hover:border-cyan-300/40 hover:bg-white/[0.06]"
+                className="group relative flex h-13 items-center justify-center overflow-hidden rounded-full border border-white/[0.12] bg-white/[0.03] px-7 text-white backdrop-blur-md z-10 transition-all duration-300 before:absolute before:inset-0 before:right-0 before:left-auto before:h-full before:w-0 before:-z-10 before:bg-cyan-500/20 before:transition-all before:duration-400 before:ease-in-out hover:border-cyan-300/40 hover:before:right-auto hover:before:left-0 hover:before:w-full"
                 size="lg"
                 variant="outline"
                 aria-label="View Mohamed Ayman GitHub profile"
@@ -301,9 +259,11 @@ export function Hero() {
                   target="_blank"
                   title="View Mohamed Ayman GitHub profile"
                 >
-                  <Github className="h-5 w-5" aria-hidden="true" />
-                  View GitHub
-                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  <span className="relative z-20 inline-flex w-full items-center justify-center gap-2 text-center transition-all duration-300 group-hover:animate-scaleUp group-hover:text-white">
+                    <Github className="h-5 w-5" aria-hidden="true" />
+                    View GitHub
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </span>
                 </a>
               </Button>
             </motion.div>
