@@ -228,7 +228,7 @@ export function Hero() {
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
               <Button
                 asChild
-                className="group relative h-13 overflow-hidden rounded-full bg-white px-7 text-slate-950 transition-colors duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:-z-10 before:bg-emerald-500 before:transition-all before:duration-300 hover:text-white hover:before:w-full"
+                className="group relative flex h-13 items-center justify-center overflow-hidden rounded-full bg-white px-7 text-slate-950 z-10 transition-all duration-300 before:absolute before:inset-0 before:right-0 before:left-auto before:h-full before:w-0 before:-z-10 before:bg-emerald-500 before:transition-all before:duration-400 before:ease-in-out hover:before:right-auto hover:before:left-0 hover:before:w-full"
                 size="lg"
                 aria-label="Download Mohamed Ayman CV"
               >
@@ -237,8 +237,10 @@ export function Hero() {
                   download="Mohamed_Ayman_Backend_Intern_CV.docx"
                   title="Download Mohamed_Ayman_Backend_Intern_CV.docx"
                 >
-                  <Download className="h-5 w-5" aria-hidden="true" />
-                  Download CV
+                  <span className="relative z-20 inline-flex w-full items-center justify-center gap-2 text-center transition-all duration-300 group-hover:animate-scaleUp group-hover:text-white">
+                    <Download className="h-5 w-5" aria-hidden="true" />
+                    Download CV
+                  </span>
                 </a>
               </Button>
             </motion.div>
@@ -246,7 +248,7 @@ export function Hero() {
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
               <Button
                 asChild
-                className="group relative h-13 overflow-hidden rounded-full border border-white/[0.12] bg-white/[0.03] px-7 text-white backdrop-blur-md transition-colors duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:-z-10 before:bg-cyan-500/20 before:transition-all before:duration-300 hover:border-cyan-300/40 hover:before:w-full"
+                className="group relative flex h-13 items-center justify-center overflow-hidden rounded-full border border-white/[0.12] bg-white/[0.03] px-7 text-white backdrop-blur-md z-10 transition-all duration-300 before:absolute before:inset-0 before:right-0 before:left-auto before:h-full before:w-0 before:-z-10 before:bg-cyan-500/20 before:transition-all before:duration-400 before:ease-in-out hover:border-cyan-300/40 hover:before:right-auto hover:before:left-0 hover:before:w-full"
                 size="lg"
                 variant="outline"
                 aria-label="View Mohamed Ayman GitHub profile"
@@ -257,9 +259,11 @@ export function Hero() {
                   target="_blank"
                   title="View Mohamed Ayman GitHub profile"
                 >
-                  <Github className="h-5 w-5" aria-hidden="true" />
-                  View GitHub
-                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  <span className="relative z-20 inline-flex w-full items-center justify-center gap-2 text-center transition-all duration-300 group-hover:animate-scaleUp group-hover:text-white">
+                    <Github className="h-5 w-5" aria-hidden="true" />
+                    View GitHub
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </span>
                 </a>
               </Button>
             </motion.div>
