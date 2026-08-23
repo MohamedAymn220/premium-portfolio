@@ -175,23 +175,20 @@ function ProfilePortrait() {
   }
 
   return (
-    <div
+    <motion.div
+      animate={{ opacity: 1, x: 0 }}
       className="group/portrait relative mx-auto aspect-[4/5] w-full max-w-md"
+      initial={{ opacity: 0, x: -50 }}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute -inset-8 rounded-[2.6rem] bg-gradient-to-br from-emerald-500/25 via-cyan-400/15 to-indigo-500/25 opacity-0 blur-2xl transition-opacity duration-500 group-hover/portrait:opacity-100"
         style={{ x: auraX, y: auraY }}
       />
-      <motion.div
-        className="relative h-full w-full [perspective:1000px]"
-        initial={{ opacity: 0, scale: 0.96 }}
-        transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-      >
+      <div className="relative h-full w-full [perspective:1000px]">
         <motion.div
           className="relative h-full w-full [transform-style:preserve-3d]"
           style={{ rotateX, rotateY }}
@@ -213,8 +210,8 @@ function ProfilePortrait() {
             className="pointer-events-none absolute inset-x-0 bottom-0 h-32 rounded-b-[2rem] bg-gradient-to-t from-[#0B0F19]/60 to-transparent"
           />
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 }
 
@@ -228,7 +225,12 @@ export function Hero() {
         variants={containerVariants}
       >
         {/* LEFT COLUMN — floating minimalist typography */}
-        <div className="relative z-10 flex flex-col items-center sm:items-start">
+        <motion.div
+          animate={{ opacity: 1, x: 0 }}
+          className="relative z-10 flex flex-col items-center sm:items-start"
+          initial={{ opacity: 0, x: 30 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        >
           <motion.div
             className="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-center text-sm font-medium text-slate-300 backdrop-blur-md sm:text-left"
             variants={itemVariants}
@@ -358,7 +360,7 @@ export function Hero() {
               );
             })}
           </motion.nav>
-        </div>
+        </motion.div>
 
         {/* RIGHT COLUMN — free-floating clean portrait */}
         <motion.aside
