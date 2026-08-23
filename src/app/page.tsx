@@ -9,6 +9,7 @@ import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { Hero } from "@/components/Hero";
 import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { TechStack } from "@/components/TechStack";
+import { Testimonials } from "@/components/Testimonials";
 
 const navLinks = [
   { id: "experience", label: "Experience" },
@@ -331,6 +332,12 @@ export default function HomePage() {
 
         <Section id="projects" labelledBy="projects-heading" className="max-w-7xl">
           <ProjectsGrid />
+        </Section>
+
+        <Seam />
+
+        <Section id="testimonials" labelledBy="testimonials-heading" className="max-w-7xl">
+          <Testimonials />
         </Section>
 
         <Seam />

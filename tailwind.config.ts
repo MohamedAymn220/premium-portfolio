@@ -80,6 +80,10 @@ const config: Config = {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(0.95)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       transitionDuration: {
         400: "400ms",
@@ -87,6 +91,7 @@ const config: Config = {
       animation: {
         'pulse-pause': 'pulse-pause 7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         scaleUp: 'scaleUp 0.3s ease-in-out forwards',
+        marquee: 'marquee 35s linear infinite',
       },
     },
   },
