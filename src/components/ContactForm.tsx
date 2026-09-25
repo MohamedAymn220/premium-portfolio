@@ -310,41 +310,6 @@ export function ContactForm() {
         </div>
       </motion.div>
 
-      <motion.footer
-        className="mx-auto mt-12 max-w-5xl"
-        initial={{ opacity: 0, y: 18 }}
-        transition={{ duration: 0.55, ease: "easeOut", delay: 0.12 }}
-        viewport={{ once: true, amount: 0.35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-      >
-        <div
-          aria-hidden="true"
-          className="h-[1px] w-full bg-gradient-to-r from-transparent via-slate-800/80 to-transparent"
-        />
-        <div className="flex flex-col items-center justify-between gap-6 py-10 text-xs font-mono text-slate-400 md:flex-row">
-          <p>© 2026 Mohamed Ayman. All rights reserved.</p>
-          <address className="flex flex-col items-center gap-4 not-italic sm:flex-row sm:gap-6">
-            <a
-              aria-label="Email Mohamed Ayman at mohamedayman21172@gmail.com"
-              className="inline-flex items-center gap-2 transition-colors hover:text-emerald-400"
-              href="mailto:mohamedayman21172@gmail.com"
-              title="Email Mohamed Ayman"
-            >
-              <Mail className="h-4 w-4 text-emerald-400/70" aria-hidden="true" />
-              mohamedayman21172@gmail.com
-            </a>
-            <a
-              aria-label="Call Mohamed Ayman at +20 114 963 6796"
-              className="inline-flex items-center gap-2 transition-colors hover:text-emerald-400"
-              href="tel:+201149636796"
-              title="Call Mohamed Ayman"
-            >
-              <Phone className="h-4 w-4 text-emerald-400/70" aria-hidden="true" />
-              +20 114 963 6796
-            </a>
-          </address>
-        </div>
-      </motion.footer>
     </div>
   );
 }

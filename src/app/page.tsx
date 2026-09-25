@@ -10,6 +10,7 @@ import { Hero } from "@/components/Hero";
 import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { TechStack } from "@/components/TechStack";
 import { CinematicImageShowcase } from "@/components/CinematicImageShowcase";
+import { Footer } from "@/components/Footer";
 
 const navLinks = [
   { id: "experience", label: "Experience" },
@@ -40,13 +41,10 @@ function AmbientBackground() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#0B0F19]"
+      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-background"
     >
       <div className="absolute inset-0 bg-grid-white bg-[size:56px_56px] opacity-[0.018]" />
-      <div className="ambient-blob ambient-blob--emerald" />
-      <div className="ambient-blob ambient-blob--indigo" />
-      <div className="ambient-blob ambient-blob--cyan" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B0F19]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
       <div className="grain-overlay" />
     </div>
   );
@@ -89,13 +87,13 @@ function Navigation() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 px-4 transition-all duration-500 sm:px-6 ${
-        scrolled ? "py-3" : "py-5"
+        scrolled ? "py-3" : "py-4"
       }`}
     >
       <nav
         className={`mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-2xl border px-4 py-2.5 transition-all duration-500 sm:px-5 ${
           scrolled
-            ? "border-white/[0.08] bg-[#0B0F19]/70 shadow-[0_8px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl"
+            ? "border-white/[0.08] bg-background/70 shadow-[0_8px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl"
             : "border-transparent bg-transparent"
         }`}
       >
@@ -176,7 +174,7 @@ function Navigation() {
           </div>
           <a
             href="#contact"
-            className="pulse-pause-btn hidden items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all duration-300 hover:bg-emerald-300 hover:shadow-[0_0_28px_rgba(16,185,129,0.4)] sm:inline-flex"
+            className="pulse-pause-btn hidden items-center gap-1.5 rounded-full bg-[#d4ff3f] px-4 py-2 text-sm font-semibold text-[#0a0a05] shadow-[0_0_15px_rgba(212,255,63,0.5)] transition-all duration-300 hover:bg-[#e4ff6e] hover:shadow-[0_0_28px_rgba(212,255,63,0.4)] sm:inline-flex"
           >
             Let&apos;s talk
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -194,7 +192,7 @@ function Navigation() {
       </nav>
 
       {menuOpen ? (
-        <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-white/[0.08] bg-[#0B0F19]/90 p-2 backdrop-blur-2xl md:hidden">
+        <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-white/[0.08] bg-background/90 p-2 backdrop-blur-2xl md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.id}
@@ -209,10 +207,20 @@ function Navigation() {
               {link.label}
             </a>
           ))}
+          <div className="my-3 flex flex-col gap-2 px-1">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-3 py-1.5 text-xs font-medium text-emerald-300">
+              <span className="pulse-dot" aria-hidden="true" />
+              Available for Internships
+            </span>
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/[0.06] px-3 py-1.5 text-xs font-medium text-cyan-200">
+              <span className="pulse-dot pulse-dot--cyan" aria-hidden="true" />
+              Available for Remote Work
+            </span>
+          </div>
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="pulse-pause-btn mt-1 block rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.5)]"
+            className="pulse-pause-btn mt-1 block rounded-xl bg-[#d4ff3f] px-4 py-3 text-center text-sm font-semibold text-[#0a0a05] shadow-[0_0_15px_rgba(212,255,63,0.5)]"
           >
             Let&apos;s talk
           </a>
@@ -308,10 +316,21 @@ export default function HomePage() {
       <BackToTop />
 
       <main className="relative min-h-screen">
+        {/* Full bleed radial highlights for hero section */}
+        <div 
+          className="absolute inset-x-0 top-0 h-screen -z-10 pointer-events-none"
+          style={{
+            backgroundImage: `
+              radial-gradient(ellipse 55% 45% at 78% 15%, #1a2b0e 0%, transparent 60%),
+              radial-gradient(ellipse 60% 50% at 5% 95%, #14140a 0%, transparent 60%)
+            `
+          }}
+        />
+
         <section
           id="hero"
           aria-labelledby="hero-heading"
-          className="relative mx-auto flex min-h-screen w-full max-w-7xl scroll-mt-28 items-center px-6 pb-20 pt-32 sm:px-10 lg:px-12"
+          className="relative mx-auto flex min-h-screen w-full max-w-7xl scroll-mt-28 items-center px-6 pb-6 pt-20 sm:px-10 lg:px-12"
         >
           <Hero />
         </section>
@@ -342,10 +361,12 @@ export default function HomePage() {
 
         <Seam />
 
-        <Section id="contact" labelledBy="contact-heading" className="max-w-3xl pb-28">
+        <Section id="contact" labelledBy="contact-heading" className="max-w-3xl pb-16">
           <ContactForm />
         </Section>
       </main>
+
+      <Footer />
     </>
   );
 }

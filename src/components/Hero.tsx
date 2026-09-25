@@ -149,11 +149,23 @@ function ProfilePortrait() {
   return (
     <motion.div
       animate={{ opacity: 1, x: 0 }}
-      className="relative mx-auto w-full max-w-md flex justify-center lg:justify-start"
+      className="relative z-10 mx-auto w-full max-w-md flex justify-center lg:justify-start"
       initial={{ opacity: 0, x: -50 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="relative w-80 h-[26rem] sm:w-96 sm:h-[32rem] lg:w-[540px] lg:h-[680px] mx-auto lg:mx-0 lg:-mt-20 flex items-end justify-center">
+      <div className="relative w-full max-w-[350px] h-[26rem] sm:max-w-96 sm:h-[32rem] lg:max-w-[540px] lg:h-[680px] mx-auto lg:mx-0 lg:-mt-20 flex items-end justify-center">
+        {/* The Lime Circle */}
+        <div
+          aria-hidden="true"
+          className="absolute left-[52%] top-[58%] -translate-x-1/2 -translate-y-1/2 z-[1]"
+          style={{
+            width: "clamp(300px, 95vw, 420px)",
+            height: "clamp(300px, 95vw, 420px)",
+            borderRadius: "50%",
+            background: "radial-gradient(circle at 35% 30%, #e4ff6e, #b8e02c 55%, #8fb31f 100%)",
+          }}
+        />
+
         {/* The Static Profile Image */}
         <div className="relative z-10 w-full h-full pointer-events-none">
           <Image
@@ -176,7 +188,7 @@ export function Hero() {
     <header className="relative w-full overflow-x-hidden sm:overflow-x-visible">
       <motion.div
         animate="visible"
-        className="relative grid w-full items-center gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12"
+        className="relative grid w-full items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12"
         initial="hidden"
         variants={containerVariants}
       >
@@ -187,17 +199,9 @@ export function Hero() {
           initial={{ opacity: 0, x: 30 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
-          <motion.div
-            className="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-center text-sm font-medium text-slate-300 backdrop-blur-md sm:text-left"
-            variants={itemVariants}
-          >
-            <span className="pulse-dot" aria-hidden="true" />
-            Backend / Full-Stack Intern Candidate
-          </motion.div>
-
           <motion.h1
             id="hero-heading"
-            className="mt-8 text-balance text-center text-[clamp(3rem,8vw,6.5rem)] font-black leading-[0.92] tracking-[-0.05em] text-white sm:text-left"
+            className="text-balance text-center text-[clamp(2.25rem,10vw,6.5rem)] font-black leading-[0.92] tracking-[-0.05em] text-white sm:text-left"
             variants={itemVariants}
           >
             Mohamed Ayman
@@ -208,27 +212,27 @@ export function Hero() {
           </motion.h1>
 
           <motion.h2
-            className="mt-8 max-w-xl text-center text-lg font-medium leading-8 text-slate-300 sm:text-left sm:text-xl lg:text-2xl lg:leading-9"
+            className="mt-4 max-w-xl text-center text-base font-medium leading-7 text-slate-300 sm:text-left sm:text-xl lg:text-2xl lg:leading-9"
             variants={itemVariants}
           >
             Full-Stack Developer | Backend (Django) & Frontend (React)
           </motion.h2>
 
           <motion.p
-            className="mt-6 max-w-xl text-center text-base leading-7 text-slate-400 sm:text-left sm:text-lg sm:leading-8"
+            className="mt-3 max-w-xl text-center text-sm leading-6 text-slate-400 sm:text-left sm:text-base sm:leading-7 lg:text-lg lg:leading-8"
             variants={itemVariants}
           >
             Software Engineer specializing in building scalable web applications. Proficient in architecting robust backend systems and RESTful APIs using Python & Django, alongside crafting responsive, dynamic user interfaces with React. Dedicated to clean code practices, optimized database architecture, and delivering end-to-end, production-ready solutions.
           </motion.p>
 
           <motion.div
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-center sm:justify-start"
+            className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-center sm:justify-start"
             variants={itemVariants}
           >
             <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
               <Button
                 asChild
-                className="group relative flex h-13 items-center justify-center overflow-hidden rounded-full bg-white px-7 text-slate-950 z-10 transition-all duration-300 before:absolute before:inset-0 before:right-0 before:left-auto before:h-full before:w-0 before:-z-10 before:bg-emerald-500 before:transition-all before:duration-400 before:ease-in-out hover:before:right-auto hover:before:left-0 hover:before:w-full"
+                className="group relative flex h-13 items-center justify-center overflow-hidden rounded-full bg-[#d4ff3f] px-7 text-[#0a0a05] z-10 transition-all duration-300 before:absolute before:inset-0 before:right-0 before:left-auto before:h-full before:w-0 before:-z-10 before:bg-[#b8e02c] before:transition-all before:duration-400 before:ease-in-out hover:before:right-auto hover:before:left-0 hover:before:w-full"
                 size="lg"
                 aria-label="Download Mohamed Ayman CV"
               >
@@ -237,7 +241,7 @@ export function Hero() {
                   download="Mohamed_Ayman_Backend_Intern_CV.docx"
                   title="Download Mohamed_Ayman_Backend_Intern_CV.docx"
                 >
-                  <span className="relative z-20 inline-flex w-full items-center justify-center gap-2 text-center transition-all duration-300 group-hover:animate-scaleUp group-hover:text-white">
+                  <span className="relative z-20 inline-flex w-full items-center justify-center gap-2 text-center transition-all duration-300 group-hover:animate-scaleUp group-hover:text-[#0a0a05]">
                     <Download className="h-5 w-5" aria-hidden="true" />
                     Download CV
                   </span>
@@ -270,7 +274,7 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:justify-start"
+            className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:justify-start"
             variants={itemVariants}
           >
             {contactDetails.map((detail) => {
@@ -297,7 +301,7 @@ export function Hero() {
 
           <motion.nav
             aria-label="Mohamed Ayman social and contact links"
-            className="mt-8 flex flex-wrap justify-center gap-3 sm:justify-start"
+            className="mt-5 flex flex-wrap justify-center gap-3 sm:justify-start"
             variants={itemVariants}
           >
             {socialLinks.map((link) => {
@@ -328,19 +332,10 @@ export function Hero() {
           className="relative"
           variants={itemVariants}
         >
-          <div
-            aria-hidden="true"
-            className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/10 blur-[120px]"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute right-0 top-10 h-72 w-72 rounded-full bg-indigo-500/[0.06] blur-[120px]"
-          />
-
           <ProfilePortrait />
 
           {/* Floating glassmorphic metric chips */}
-          <div className="relative z-10 mx-auto mt-6 grid w-full max-w-md grid-cols-3 gap-3">
+          <div className="relative z-10 mx-auto mt-6 grid w-full max-w-md grid-cols-1 gap-3 sm:grid-cols-3">
             {heroStats.map((stat) => {
               const Icon = stat.icon;
 
