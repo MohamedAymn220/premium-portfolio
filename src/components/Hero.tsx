@@ -237,9 +237,9 @@ export function Hero() {
                 aria-label="Download Mohamed Ayman CV"
               >
                 <a
-                  href="/Mohamed_Ayman_Backend_Intern_CV.docx"
-                  download="Mohamed_Ayman_Backend_Intern_CV.docx"
-                  title="Download Mohamed_Ayman_Backend_Intern_CV.docx"
+                  href="/Mohamed_Ayman__CV.pdf"
+                  download="Mohamed_Ayman__CV.pdf"
+                  title="Download Mohamed_Ayman__CV.pdf"
                 >
                   <span className="relative z-20 inline-flex w-full items-center justify-center gap-2 text-center transition-all duration-300 group-hover:animate-scaleUp group-hover:text-[#0a0a05]">
                     <Download className="h-5 w-5" aria-hidden="true" />

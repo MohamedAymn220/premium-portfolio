@@ -46,7 +46,7 @@ export function Footer() {
             <h3 className="text-[11px] uppercase tracking-wider text-slate-500 font-mono">Resources</h3>
             <ul className="flex flex-col gap-2">
               <li>
-                <a href="/Mohamed_Ayman_Backend_Intern_CV.docx" download className="text-[13px] text-slate-300 hover:text-white transition-colors">
+                <a href="/Mohamed_Ayman__CV.pdf" download="Mohamed_Ayman__CV.pdf" className="text-[13px] text-slate-300 hover:text-white transition-colors">
                   Download CV
                 </a>
               </li>
