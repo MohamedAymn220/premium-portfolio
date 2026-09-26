@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { ArrowUp, ArrowUpRight, Menu, X } from "lucide-react";
 
 import { ContactForm } from "@/components/ContactForm";
@@ -191,41 +191,58 @@ function Navigation() {
         </div>
       </nav>
 
-      {menuOpen ? (
-        <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-white/[0.08] bg-background/90 p-2 backdrop-blur-2xl md:hidden">
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
+      <AnimatePresence>
+        {menuOpen ? (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.26, ease: "easeIn" } }}
+              exit={{ opacity: 0, transition: { duration: 0.32, ease: "easeIn" } }}
+              className="fixed inset-0 -z-10 h-screen w-screen bg-black/60 backdrop-blur-sm md:hidden"
               onClick={() => setMenuOpen(false)}
-              className={`block rounded-xl px-4 py-3 text-sm transition-colors ${
-                active === link.id
-                  ? "bg-white/[0.06] text-white"
-                  : "text-slate-300 hover:bg-white/[0.04] hover:text-white"
-              }`}
+              aria-hidden="true"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -40, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.26, ease: "easeIn" } }}
+              exit={{ opacity: 0, y: -40, scale: 0.95, transition: { duration: 0.32, ease: "easeIn" } }}
+              className="mx-auto mt-2 max-w-6xl rounded-2xl border border-white/[0.08] bg-background/90 p-2 backdrop-blur-2xl md:hidden relative z-50"
             >
-              {link.label}
-            </a>
-          ))}
-          <div className="my-3 flex flex-col gap-2 px-1">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-3 py-1.5 text-xs font-medium text-emerald-300">
-              <span className="pulse-dot" aria-hidden="true" />
-              Available for Internships
-            </span>
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/[0.06] px-3 py-1.5 text-xs font-medium text-cyan-200">
-              <span className="pulse-dot pulse-dot--cyan" aria-hidden="true" />
-              Available for Remote Work
-            </span>
-          </div>
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="pulse-pause-btn mt-1 block rounded-xl bg-[#d4ff3f] px-4 py-3 text-center text-sm font-semibold text-[#0a0a05] shadow-[0_0_15px_rgba(212,255,63,0.5)]"
-          >
-            Let&apos;s talk
-          </a>
-        </div>
-      ) : null}
+              {navLinks.map((link) => (
+                <a
+                  key={link.id}
+                  href={`#${link.id}`}
+                  onClick={() => setMenuOpen(false)}
+                  className={`block rounded-xl px-4 py-3 text-sm transition-colors ${
+                    active === link.id
+                      ? "bg-white/[0.06] text-white"
+                      : "text-slate-300 hover:bg-white/[0.04] hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="my-3 flex flex-col gap-2 px-1">
+                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-3 py-1.5 text-xs font-medium text-emerald-300">
+                  <span className="pulse-dot" aria-hidden="true" />
+                  Available for Internships
+                </span>
+                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/[0.06] px-3 py-1.5 text-xs font-medium text-cyan-200">
+                  <span className="pulse-dot pulse-dot--cyan" aria-hidden="true" />
+                  Available for Remote Work
+                </span>
+              </div>
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="pulse-pause-btn mt-1 block rounded-xl bg-[#d4ff3f] px-4 py-3 text-center text-sm font-semibold text-[#0a0a05] shadow-[0_0_15px_rgba(212,255,63,0.5)]"
+              >
+                Let&apos;s talk
+              </a>
+            </motion.div>
+          </>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }
