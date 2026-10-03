@@ -19,7 +19,7 @@ const siteUrl = "https://mohamedayman-dev.vercel.app";
 const profileImage = `${siteUrl}/og-image.png`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL('https://mohamedayman-dev.vercel.app'),
   title: {
     default: "Mohamed Ayman | Backend & Full-Stack Developer",
     template: "%s | Mohamed Ayman Portfolio",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   ],
   creator: "Mohamed Ayman Abdelfatah",
   publisher: "Mohamed Ayman Abdelfatah",
-  applicationName: "Mohamed Ayman Portfolio",
+  applicationName: "Mohamed Ayman | مهندس محمد أيمن",
   category: "portfolio",
   alternates: {
     canonical: "/",
