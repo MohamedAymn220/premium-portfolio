@@ -2,6 +2,7 @@ Act as an Elite Senior Frontend & SEO Engineer. Your task is to build a high-end
 
 The website MUST be completely production-ready, ultra-optimized for Google Search (SEO), and perfectly mapped to the developer's provided background.
 
+
 ---
 
 CRITICAL SEO & PRODUCTION REQUIREMENTS:
