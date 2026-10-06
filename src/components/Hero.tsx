@@ -76,7 +76,7 @@ const socialLinks: SocialLink[] = [
 
 const heroStats = [
   {
-    value: "2",
+    value: "3+",
     label: "Production-grade systems",
     description: "E-commerce and EdTech systems shipped with real backend workflows.",
     icon: Boxes,
@@ -90,7 +90,7 @@ const heroStats = [
     className: "",
   },
   {
-    value: "120h",
+    value: "270+",
     label: "ITI full-stack training",
     description: "Backend architecture, REST APIs, deployment, and Git sprints.",
     icon: Clock3,

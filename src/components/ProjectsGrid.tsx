@@ -52,7 +52,7 @@ const projects: Project[] = [
         icon: Github,
       },
     ],
-    colSpan: "lg:col-span-2",
+    colSpan: "md:col-span-2 lg:col-span-2",
   },
   {
     projectKey: "learnup",
@@ -70,7 +70,7 @@ const projects: Project[] = [
         icon: Github,
       },
     ],
-    colSpan: "lg:col-span-1",
+    colSpan: "md:col-span-1 lg:col-span-1",
   },
   {
     projectKey: "creditcard",
@@ -96,8 +96,24 @@ const projects: Project[] = [
         icon: Github,
       },
     ],
-    colSpan: "lg:col-span-3",
-    isBanner: true,
+    colSpan: "md:col-span-1 lg:col-span-1",
+  },
+  {
+    projectKey: "khaled",
+    title: "Khaled El-Sayed - Math Educational Platform",
+    description:
+      "A premium, high-performance e-learning platform tailored for high school mathematics. Features include secure student authentication, interactive course dashboards, rigorous input validation, and a highly responsive, modern UI/UX designed for an optimal student experience.",
+    techStack: ["Next.js", "React", "Tailwind CSS", "Shadcn UI", "TypeScript", "Zod", "React Hook Form"],
+    links: [
+      {
+        label: "Live Demo",
+        href: "https://mr-khaled-elsayed-math.vercel.app/",
+        ariaLabel: "Open the live demo for Khaled El-Sayed Platform",
+        variant: "default",
+        icon: ExternalLink,
+      },
+    ],
+    colSpan: "md:col-span-2 lg:col-span-2",
   },
 ];
 
@@ -144,7 +160,7 @@ export function ProjectsGrid() {
       </div>
 
       <motion.div
-        className="mt-14 grid gap-6 lg:grid-cols-3"
+        className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         initial="hidden"
         variants={gridVariants}
         viewport={{ once: true, amount: 0.18 }}

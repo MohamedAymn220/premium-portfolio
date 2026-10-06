@@ -11,9 +11,10 @@ import { Button } from "@/components/ui/button";
 const learnupImages = ["/learnup1.png", "/learnup2.png"];
 const teryaqImages = ["/teryaq1.png", "/teryaq2.png", "/teryaq3.png", "/teryaq4.png"];
 const creditCardImages = ["/Card.png"];
+const khaledImages = ["/mm1.jpeg", "/mm2.jpeg", "/mm3.jpeg", "/mm4.jpeg", "/mm5.jpeg"];
 
 // --- Public types --------------------------------------------------------------
-export type ProjectKey = "learnup" | "teryaq" | "creditcard";
+export type ProjectKey = "learnup" | "teryaq" | "creditcard" | "khaled";
 
 export type ProjectLink = {
   label: string;
@@ -29,6 +30,7 @@ const imageRegistry: Record<ProjectKey, string[]> = {
   learnup: learnupImages,
   teryaq: teryaqImages,
   creditcard: creditCardImages,
+  khaled: khaledImages,
 };
 
 type ProjectCardProps = {
