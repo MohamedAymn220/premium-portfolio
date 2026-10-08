@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   ],
   creator: "Mohamed Ayman Abdelfatah",
   publisher: "Mohamed Ayman Abdelfatah",
-  applicationName: "Mohamed Ayman | مهندس محمد أيمن",
+  applicationName: "Eng. Mohamed Ayman",
   category: "portfolio",
   alternates: {
     canonical: "/",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Mohamed Ayman | Backend & Full-Stack Developer",
     description: "Explore my production-ready systems, RESTful routes, and AI integrations.",
     url: siteUrl,
-    siteName: "Mohamed Ayman Portfolio",
+    siteName: "Eng. Mohamed Ayman",
     images: [
       {
         url: "/og-image.png",
@@ -118,7 +118,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "Mohamed Ayman - Software Engineer Portfolio",
+      name: "Eng. Mohamed Ayman",
       alternateName: [
         "مهندس محمد أيمن",
         "مهندس محمد ايمن",
