@@ -21,8 +21,8 @@ const profileImage = `${siteUrl}/og-image.png`;
 export const metadata: Metadata = {
   metadataBase: new URL('https://mohamedayman-dev.vercel.app'),
   title: {
-    default: "Mohamed Ayman | Backend & Full-Stack Developer",
-    template: "%s | Mohamed Ayman Portfolio",
+    default: "Eng. Mohamed Ayman | Backend & Full-Stack Developer",
+    template: "%s | Eng. Mohamed Ayman",
   },
   description:
     "Computer Engineering Student at Al-Azhar University. Building scalable web applications, RESTful APIs, and AI Agents.",
@@ -53,11 +53,14 @@ export const metadata: Metadata = {
   publisher: "Mohamed Ayman Abdelfatah",
   applicationName: "Eng. Mohamed Ayman",
   category: "portfolio",
+  appleWebApp: {
+    title: "Eng. Mohamed Ayman",
+  },
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Mohamed Ayman | Backend & Full-Stack Developer",
+    title: "Eng. Mohamed Ayman | Backend & Full-Stack Developer",
     description: "Explore my production-ready systems, RESTful routes, and AI integrations.",
     url: siteUrl,
     siteName: "Eng. Mohamed Ayman",
@@ -120,10 +123,8 @@ const jsonLd = {
       url: siteUrl,
       name: "Eng. Mohamed Ayman",
       alternateName: [
+        "Mohamed Ayman",
         "مهندس محمد أيمن",
-        "مهندس محمد ايمن",
-        "محمد أيمن",
-        "محمد ايمن",
         "Mohamed Ayman Portfolio",
       ],
       inLanguage: ["en", "ar"],
